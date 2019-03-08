@@ -1,0 +1,12 @@
+
+.cardUser {
+    background: linear-gradient(to right, #82807f 0%, #bfbbb9 19%, #f7f4f4 56%, #f7f7f7 100%);
+    display: flex;
+    flex-direction: wrap;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+.picture {
+    margin: 5%;
+    border-radius: 50%;
+}

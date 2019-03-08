@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style/style.css">
+</head>
+
+<body>
+    <main>
+        <usuarios class="container"></usuarios>
+    </main>
+    
+<!-- TEMPLATES -->
+    <template id="usuarios-template">
+        <div>
+            <section class="row">
+                <h1>Usuarios de mi empresa</h1>
+                <input class="form-control" type="search" placeholder="Filtrar usuarios" v-model="busqueda">
+            </section>
+            <hr>
+            <section class="row">
+                <usuario :datos="usuario" v-for="usuario in filtrarUsuarios"></usuario>
+            </section>
+        </div>
+    </template>
+    
+<!-- TEMPLATE CHILD -->
+    <template id="usuario-template">
+            <div class="col">
+                <div class="cardUser">
+                    <img class="picture" :src="datos.foto" :alt="datos.nombre">
+                    <section >
+                        <h3> {{ datos.nombre }} </h3>
+                        <small> {{ datos.email }} </small>
+                    </section>
+                </div>
+            </div>
+    </template>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vue/main.js"></script>
+</body>
+
+</html>
