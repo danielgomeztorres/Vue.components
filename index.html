@@ -12,6 +12,8 @@
 
 <body>
     <main>
+        <div class="loader"></div>
+        
         <usuarios class="container"></usuarios>
     </main>
     
@@ -19,12 +21,13 @@
     <template id="usuarios-template">
         <div>
             <section class="row">
-                <h1>Usuarios de mi empresa</h1>
-                <input class="form-control" type="search" placeholder="Filtrar usuarios" v-model="busqueda">
+                <h1>Miembros de mi empresa</h1>
+                <input class="form-control" type="search" placeholder="Filtrar por nombre" v-model="busquedaUsuario">
+                <input class="form-control" type="search" placeholder="Filtrar por ciudad" v-model="busquedaCiudad">
             </section>
             <hr>
             <section class="row">
-                <usuario :datos="usuario" v-for="usuario in filtrarUsuarios"></usuario>
+                <usuario-target :datos="usuarioInfo" v-for="usuarioInfo in filtrarUsuarios"></usuario-target>
             </section>
         </div>
     </template>
@@ -36,6 +39,7 @@
                     <img class="picture" :src="datos.foto" :alt="datos.nombre">
                     <section >
                         <h3> {{ datos.nombre }} </h3>
+                        <h5> Ciudad : {{ datos.localizacion }} </h5>
                         <small> {{ datos.email }} </small>
                     </section>
                 </div>
@@ -45,6 +49,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="vue/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $(".loader").fadeOut("slow");
+        });
+    </script>
 </body>
 
 </html>
